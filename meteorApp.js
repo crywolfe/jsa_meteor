@@ -14,6 +14,16 @@ if (Meteor.isClient) {
 
   });
 
+  //Template Events
+  Template.signature.events({ 'submit form': function(e) {
+    e.preventDefault();
+    var sig = $(e.target).find('[name=output]').val();
+
+    console.log("hi" + sig);
+  }
+
+  });
+
 }
 
 if (Meteor.isServer) {
