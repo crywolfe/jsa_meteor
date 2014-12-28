@@ -20,6 +20,7 @@ if (Meteor.isClient) {
   Template.signature.events({ 'submit form': function(e) {
     e.preventDefault();
     var sig = $(e.target).find('[name=output]').val();
+
     var safetyGlasses = $('#safety-glasses').is(':checked');
     var hearingProtection = $('#hearing-protection').is(':checked');
     var faceShield = $('#face-shield').is(':checked');
@@ -34,24 +35,26 @@ if (Meteor.isClient) {
     var rubberGloves = $('#rubber-gloves').is(':checked');
 
 
-    // Jsaform.insert({
-    //   createdAt: new Date(),
-    //   sig: sig,
-    //   user: Meteor.userId(),
-    //   safetyGlasses: safetyGlasses,
-    //   hearingProtection: hearingProtection
-    //   // faceShield:,
-    //   // fallProtection:,
-    //   // gasMonitor:,
-    //   // chemicalGloves:,
-    //   // hardHat:,
-    //   // frClothing:,
-    //   // safetyToedboots:,
-    //   // elevatedWork:,
-    //   // leatherGloves:,
-    //   // rubberGloves:
-    //
-    // });
+    Jsaform.insert({
+      createdAt: new Date(),
+      sig: sig,
+      user: Meteor.userId(),
+      safetyGlasses: safetyGlasses,
+      hearingProtection: hearingProtection,
+      faceShield: faceShield,
+      fallProtection: fallProtection,
+      gasMonitor: gasMonitor,
+      chemicalGloves: chemicalGloves,
+      hardHat: hardHat,
+      frClothing: frClothing,
+      safetyToedboots: safetyToedboots,
+      elevatedWork: elevatedWork,
+      leatherGloves: leatherGloves,
+      rubberGloves: rubberGloves
+
+    });
+
+    alert("successful");
   }
 
   });
