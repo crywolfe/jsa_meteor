@@ -23,43 +23,65 @@
 
 <template name="info">
   <h3>Section 1 - Project Information</h3>
-  <h4>Client: </h4>
-  <h4>Project: </h4>
-  <h4>Location: </h4>
+  <h4>Client:
+    <select name="client">
+      <option value="None" selected>None</option>
+      <option value="NextEra">NextEra</option>
+      <option value="Whiting">Whiting</option>
+      <option value="Summit">Summit</option>
+    </select>
+  </h4>
+  <h4>Project:
+    <select name="project">
+      <option value="None" selected>None</option>
+      <option value="1st project">1st project</option>
+      <option value="2nd project">2nd project</option>
+      <option value="3rd project">3rd project</option>
+    </select>
+  </h4>
+  <h4>Location:
+    <select name="location">
+      <option value="None" selected>None</option>
+      <option value="1st location">1st location</option>
+      <option value="2nd location">2nd location</option>
+      <option value="3rd location">3rd location</option>
+    </select>
+  </h4>
 </template>
 
 <template name="ppe">
-  <h3>Section 2 - PPE Requirements</h3>
-  <table>
-    <tr>
-      <td>safety glasses </td><td><input type="checkbox" name="safety-glasses"></td>
-      <td>hearing protection </td><td><input type="checkbox" name="hearing-protection"></td>
-      <td>face shield </td><td><input type="checkbox" name="face-shield"></td>
-    </tr>
-    <tr>
-      <td>fall protection </td><td><input type="checkbox" name="fall-protection"></td>
-      <td>gas monitor </td><td><input type="checkbox" name="gas-monitor"></td>
-      <td>chemical gloves </td><td><input type="checkbox" name="chemical-gloves"></td>
-    </tr>
-    <tr>
-      <td>hard hat </td><td><input type="checkbox" name="hard-hat"></td>
-      <td>FR clothing </td><td><input type="checkbox" name="fr-clothing"></td>
-      <td>safety toed boots </td><td><input type="checkbox" name="safety-toed-boots"></td>
-    </tr>
-    <tr>
-      <td>elevated work </td><td><input type="checkbox" name="elevated-work"></td>
-      <td>leather gloves </td><td><input type="checkbox" name="leather-gloves"></td>
-      <td>rubber gloves </td><td><input type="checkbox" name="rubber-gloves"></td>
-    </tr>
-
-  </table>
 
 </template>
 
 <template name="preparation"></template>
 
 <template name="signature">
+
   <form method="post" action="" class="sigPad">
+    <h3>Section 2 - PPE Requirements</h3>
+    <table>
+      <tr>
+        <td>safety glasses </td><td><input type="checkbox" name="safety-glasses" id="safety-glasses"></td>
+        <td>hearing protection </td><td><input type="checkbox" name="hearing-protection" id="hearing-protection"></td>
+        <td>face shield </td><td><input type="checkbox" name="face-shield" id="face-shield"></td>
+      </tr>
+      <tr>
+        <td>fall protection </td><td><input type="checkbox" name="fall-protection" id="fall-protection"></td>
+        <td>gas monitor </td><td><input type="checkbox" name="gas-monitor" id="gas-monitor"></td>
+        <td>chemical gloves </td><td><input type="checkbox" name="chemical-gloves" id="chemical-gloves"></td>
+      </tr>
+      <tr>
+        <td>hard hat </td><td><input type="checkbox" name="hard-hat" id="hard-hat"></td>
+        <td>FR clothing </td><td><input type="checkbox" name="fr-clothing" id="fr-clothing"></td>
+        <td>safety toed boots </td><td><input type="checkbox" name="safety-toed-boots" id="safety-toed-boots"></td>
+      </tr>
+      <tr>
+        <td>elevated work </td><td><input type="checkbox" name="elevated-work" id="elevated-work"></td>
+        <td>leather gloves </td><td><input type="checkbox" name="leather-gloves" id="leather-gloves"></td>
+        <td>rubber gloves </td><td><input type="checkbox" name="rubber-gloves" id="rubber-gloves"></td>
+      </tr>
+    </table>
+
     <label for="name">Print your name</label>
     <input type="text" name="name" id="name" class="name">
     <p class="typeItDesc">Review your signature</p>

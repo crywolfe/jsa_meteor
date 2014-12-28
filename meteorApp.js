@@ -1,3 +1,5 @@
+Jsaform = new Mongo.Collection("jsaform");
+
 if (Meteor.isClient) {
 
   //Templates
@@ -18,8 +20,38 @@ if (Meteor.isClient) {
   Template.signature.events({ 'submit form': function(e) {
     e.preventDefault();
     var sig = $(e.target).find('[name=output]').val();
+    var safetyGlasses = $('#safety-glasses').is(':checked');
+    var hearingProtection = $('#hearing-protection').is(':checked');
+    var faceShield = $('#face-shield').is(':checked');
+    var fallProtection = $('#fall-protection').is(':checked');
+    var gasMonitor = $('#gas-monitor').is(':checked');
+    var chemicalGloves = $('#chemical-gloves').is(':checked');
+    var hardHat = $('#hard-hat').is(':checked');
+    var frClothing = $('#fr-clothing').is(':checked');
+    var safetyToedboots = $('#safety-toed-boots').is(':checked');
+    var elevatedWork = $('#elevated-work').is(':checked');
+    var leatherGloves = $('#leather-gloves').is(':checked');
+    var rubberGloves = $('#rubber-gloves').is(':checked');
 
-    console.log("hi" + sig);
+
+    // Jsaform.insert({
+    //   createdAt: new Date(),
+    //   sig: sig,
+    //   user: Meteor.userId(),
+    //   safetyGlasses: safetyGlasses,
+    //   hearingProtection: hearingProtection
+    //   // faceShield:,
+    //   // fallProtection:,
+    //   // gasMonitor:,
+    //   // chemicalGloves:,
+    //   // hardHat:,
+    //   // frClothing:,
+    //   // safetyToedboots:,
+    //   // elevatedWork:,
+    //   // leatherGloves:,
+    //   // rubberGloves:
+    //
+    // });
   }
 
   });
