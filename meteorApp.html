@@ -1,14 +1,99 @@
 <head>
-  <title>meteorApp</title>
+  <title>JSA App Using Meteor</title>
+  <!--[if lt IE 9]><script src="flashcanvas.js"></script><![endif]-->
+  <script src="vendor/jquery.signaturepad.min.js"></script>
+  <script src="vendor/json2.min.js"></script>
+  <link rel="stylesheet" href="vender/css/jquery.signaturepad.css">
 </head>
 
 <body>
-  <h1>JOB SAFETY ANALSYS</h1>
-	{{> loginButtons }}
-  {{> hello}}
+  <h1>Job Safety Analysis App</h1>
+  {{> loginButtons }}
+  {{> signature}}
+
+  <div class="info"></div>
+  <div class="preparation"></div>
+
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="info">
+</template>
+
+<template name="preparation"></template>
+
+<template name="signature">
+
+  <form method="post" action="" class="sigPad">
+    <h3>Section 1 - Project Information</h3>
+    <h4>Client:
+      <select name="client">
+        <option value="None" selected>None</option>
+        <option value="NextEra" id="client-1">NextEra</option>
+        <option value="Whiting" id="client-2">Whiting</option>
+        <option value="Flatirons" id="client-3">Flatirons</option>
+      </select>
+    </h4>
+    <h4>Project:
+      <select name="project">
+        <option value="None" selected>None</option>
+        <option value="1st project" id="1st-project">1st project</option>
+        <option value="2nd project" id="2nd-project">2nd project</option>
+        <option value="3rd project" id="3rd-project">3rd project</option>
+      </select>
+    </h4>
+    <h4>Location:
+      <select name="location">
+        <option value="None" selected>None</option>
+        <option value="1st location" id="1st-location">1st location</option>
+        <option value="2nd location" id="2nd-location">2nd location</option>
+        <option value="3rd location" id="3rd-location">3rd location</option>
+      </select>
+    </h4>
+
+    <h3>Section 2 - PPE Requirements</h3>
+    <table>
+      <tr>
+        <td>safety glasses </td><td><input type="checkbox" name="safety-glasses" id="safety-glasses"></td>
+        <td>hearing protection </td><td><input type="checkbox" name="hearing-protection" id="hearing-protection"></td>
+        <td>face shield </td><td><input type="checkbox" name="face-shield" id="face-shield"></td>
+      </tr>
+      <tr>
+        <td>fall protection </td><td><input type="checkbox" name="fall-protection" id="fall-protection"></td>
+        <td>gas monitor </td><td><input type="checkbox" name="gas-monitor" id="gas-monitor"></td>
+        <td>chemical gloves </td><td><input type="checkbox" name="chemical-gloves" id="chemical-gloves"></td>
+      </tr>
+      <tr>
+        <td>hard hat </td><td><input type="checkbox" name="hard-hat" id="hard-hat"></td>
+        <td>FR clothing </td><td><input type="checkbox" name="fr-clothing" id="fr-clothing"></td>
+        <td>safety toed boots </td><td><input type="checkbox" name="safety-toed-boots" id="safety-toed-boots"></td>
+      </tr>
+      <tr>
+        <td>elevated work </td><td><input type="checkbox" name="elevated-work" id="elevated-work"></td>
+        <td>leather gloves </td><td><input type="checkbox" name="leather-gloves" id="leather-gloves"></td>
+        <td>rubber gloves </td><td><input type="checkbox" name="rubber-gloves" id="rubber-gloves"></td>
+      </tr>
+    </table>
+
+    <label for="name">Print your name</label>
+    <input type="text" name="name" id="name" class="name">
+    <p class="typeItDesc">Review your signature</p>
+    <p class="drawItDesc">Draw your signature</p>
+    <ul class="sigNav">
+      <li class="typeIt"><a href="#type-it" class="current">Type It</a></li>
+      <li class="drawIt"><a href="#draw-it">Draw It</a></li>
+      <li class="clearButton"><a href="#clear">Clear</a></li>
+    </ul>
+    <div class="sig sigWrapper">
+      <div class="typed"></div>
+      <canvas class="pad" width="198" height="55"></canvas>
+      <input type="hidden" name="output" class="output">
+    </div>
+    <button type="submit">I accept and approve the content of this JSA.</button>
+  </form>
+  <script>
+  $(document).ready(function() {
+    $('.sigPad').signaturePad();
+  });
+  </script>
+
 </template>
