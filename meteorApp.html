@@ -9,48 +9,14 @@
 <body>
   <h1>Job Safety Analysis App</h1>
   {{> loginButtons }}
-  {{> info}}
-  {{> ppe}}
   {{> signature}}
 
   <div class="info"></div>
-  <div class="ppe"></div>
   <div class="preparation"></div>
-
-
 
 </body>
 
 <template name="info">
-  <h3>Section 1 - Project Information</h3>
-  <h4>Client:
-    <select name="client">
-      <option value="None" selected>None</option>
-      <option value="NextEra">NextEra</option>
-      <option value="Whiting">Whiting</option>
-      <option value="Summit">Summit</option>
-    </select>
-  </h4>
-  <h4>Project:
-    <select name="project">
-      <option value="None" selected>None</option>
-      <option value="1st project">1st project</option>
-      <option value="2nd project">2nd project</option>
-      <option value="3rd project">3rd project</option>
-    </select>
-  </h4>
-  <h4>Location:
-    <select name="location">
-      <option value="None" selected>None</option>
-      <option value="1st location">1st location</option>
-      <option value="2nd location">2nd location</option>
-      <option value="3rd location">3rd location</option>
-    </select>
-  </h4>
-</template>
-
-<template name="ppe">
-
 </template>
 
 <template name="preparation"></template>
@@ -58,6 +24,32 @@
 <template name="signature">
 
   <form method="post" action="" class="sigPad">
+    <h3>Section 1 - Project Information</h3>
+    <h4>Client:
+      <select name="client">
+        <option value="None" selected>None</option>
+        <option value="NextEra" id="client-1">NextEra</option>
+        <option value="Whiting" id="client-2">Whiting</option>
+        <option value="Flatirons" id="client-3">Flatirons</option>
+      </select>
+    </h4>
+    <h4>Project:
+      <select name="project">
+        <option value="None" selected>None</option>
+        <option value="1st project" id="1st-project">1st project</option>
+        <option value="2nd project" id="2nd-project">2nd project</option>
+        <option value="3rd project" id="3rd-project">3rd project</option>
+      </select>
+    </h4>
+    <h4>Location:
+      <select name="location">
+        <option value="None" selected>None</option>
+        <option value="1st location" id="1st-location">1st location</option>
+        <option value="2nd location" id="2nd-location">2nd location</option>
+        <option value="3rd location" id="3rd-location">3rd location</option>
+      </select>
+    </h4>
+
     <h3>Section 2 - PPE Requirements</h3>
     <table>
       <tr>
