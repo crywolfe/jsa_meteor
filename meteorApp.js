@@ -1,9 +1,8 @@
 Jsaform = new Mongo.Collection("jsaform");
 
 // Set up a Test Admin account
-Meteor.users.update({"emails.address": "admin@g.com"}, {$set: {admin: true}});
+// Meteor.users.update({"emails.address": "admin@g.com"}, {$set: {admin: true}});
 
-console.log("MAIN WORKING. IS CLIENT");
 if (Meteor.isClient) {
 
   //Templates
@@ -18,6 +17,9 @@ if (Meteor.isClient) {
 
   Template.signature.helpers({
 
+    // var showSig = $('.sigPad').signaturePad({displayOnly:true});
+    // showSig.regenerate(sig);
+
   });
 
   //Template Events
@@ -25,9 +27,9 @@ if (Meteor.isClient) {
     e.preventDefault();
     var sig = $(e.target).find('[name=output]').val();
 
-    var client1 = $(e.target).find('[name=client]').val();
+    // var client1 = $(e.target).find('[name=client]').val();
 
-    console.log(client1);
+    // console.log(client1);
     console.log(sig);
     console.log(1);
 
@@ -45,26 +47,26 @@ if (Meteor.isClient) {
     var rubberGloves = $('#rubber-gloves').is(':checked');
 
 
-    // Jsaform.insert({
-    //   createdAt: new Date(),
-    //   sig: sig,
-    //   user: Meteor.userId(),
-    //
-    //
-    //   safetyGlasses: safetyGlasses,
-    //   hearingProtection: hearingProtection,
-    //   faceShield: faceShield,
-    //   fallProtection: fallProtection,
-    //   gasMonitor: gasMonitor,
-    //   chemicalGloves: chemicalGloves,
-    //   hardHat: hardHat,
-    //   frClothing: frClothing,
-    //   safetyToedboots: safetyToedboots,
-    //   elevatedWork: elevatedWork,
-    //   leatherGloves: leatherGloves,
-    //   rubberGloves: rubberGloves
-    //
-    // });
+    Jsaform.insert({
+      createdAt: new Date(),
+      sig: sig,
+      user: Meteor.userId(),
+
+
+      safetyGlasses: safetyGlasses,
+      hearingProtection: hearingProtection,
+      faceShield: faceShield,
+      fallProtection: fallProtection,
+      gasMonitor: gasMonitor,
+      chemicalGloves: chemicalGloves,
+      hardHat: hardHat,
+      frClothing: frClothing,
+      safetyToedboots: safetyToedboots,
+      elevatedWork: elevatedWork,
+      leatherGloves: leatherGloves,
+      rubberGloves: rubberGloves
+
+    });
 
 
     alert("successful");

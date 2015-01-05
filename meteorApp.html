@@ -1,9 +1,9 @@
 <head>
   <title>JSA App Using Meteor</title>
   <!--[if lt IE 9]><script src="flashcanvas.js"></script><![endif]-->
-  <script src="client/jquery.signaturepad.min.js"></script>
-  <script src="client/json2.min.js"></script>
-  <!--  <link rel="stylesheet" href="client/css/jquery.signaturepad.css"> -->
+  <script src="client/assets/jquery.signaturepad.min.js"></script>
+  <script src="client/assets/json2.min.js"></script>
+  <link rel="stylesheet" href="client/assets/jquery.signaturepad.css">
   </head>
 
 <body>
@@ -11,12 +11,23 @@
   {{> loginButtons }}
   {{> signature}}
 
-  <div class="info"></div>
+  <div class="admin-dashboard"></div>
   <div class="preparation"></div>
 
 </body>
 
-<template name="info">
+<template name="admin-dashboard">
+
+  <!-- Show signatures - iterate through them -->
+
+  <!-- <div class="sigPad signed">
+    <div class="sigWrapper">
+      <div class="typed">Sir John A. Macdonald</div>
+      <canvas class="pad" width="200" height="55"></canvas>
+    </div>
+    <p>Sir John A. Macdonald<br>July 1, 1867</p>
+  </div> -->
+
 </template>
 
 <template name="preparation"></template>
