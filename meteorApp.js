@@ -1,5 +1,9 @@
 Jsaform = new Mongo.Collection("jsaform");
 
+// Set up a Test Admin account
+Meteor.users.update({"emails.address": "admin@g.com"}, {$set: {admin: true}});
+
+console.log("MAIN WORKING. IS CLIENT");
 if (Meteor.isClient) {
 
   //Templates
@@ -25,6 +29,7 @@ if (Meteor.isClient) {
 
     console.log(client1);
     console.log(sig);
+    console.log(1);
 
     var safetyGlasses = $('#safety-glasses').is(':checked');
     var hearingProtection = $('#hearing-protection').is(':checked');
@@ -60,6 +65,7 @@ if (Meteor.isClient) {
     //   rubberGloves: rubberGloves
     //
     // });
+
 
     alert("successful");
   }
