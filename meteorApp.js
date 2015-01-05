@@ -6,14 +6,7 @@ Jsaform = new Mongo.Collection("jsaform");
 if (Meteor.isClient) {
 
   //Templates
-  Template.info.helpers({
 
-  });
-
-
-  Template.ppe.helpers({
-
-  });
 
   Template.signature.helpers({
 
