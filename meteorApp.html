@@ -10,6 +10,7 @@
   <h1>Job Safety Analysis App</h1>
   {{> loginButtons }}
   {{> signature}}
+  {{> adminDashboard}}
 
 <!--   {{#if currentUser.emails.address === "admin@g.com"}}
  -->  <div class="admin-dashboard">
@@ -20,7 +21,7 @@
 
 </body>
 
-<template name="admin-dashboard">
+<template name="adminDashboard">
   <h3>ADMIN DASHBOARD</h3>
   <table>
     <tr>
@@ -29,30 +30,26 @@
       <th>User</th>
       <th>Signature</th>
     </tr>
+    {{#each allUserForms}}
     <tr>
-      <td>{{jsaForm.createdAt}}</td>
-      <td>{{jsaForm.location}}</td>
-      <td>{{jsaForm.user}}</td>
-      <td>{{jsaForm.sig}}</td>
+      <td>{{createdAt}}</td>
+      <td>{{location}}</td>
+      <td>{{user}}</td>
+      <td>
+        <li>{{sig}}</li>
+      </td>
     </tr>
+    {{/each}}
   </table>
 
-<!--   <ul>
-  {{#each users}}
-  {{> user}}
-  {{/each}}
-</ul> -->
-
-
   <!-- Show signatures - iterate through them -->
-
-  <!-- <div class="sigPad signed">
+  <div class="sigPad">
     <div class="sigWrapper">
-      <div class="typed">Sir John A. Macdonald</div>
+      <div class="typed">Gerald</div>
       <canvas class="pad" width="200" height="55"></canvas>
     </div>
-    <p>Sir John A. Macdonald<br>July 1, 1867</p>
-  </div> -->
+    <p>Gerald<br>Date</p>
+  </div>
 
 </template>
 
@@ -128,8 +125,16 @@
     <button type="submit">I accept and approve the content of this JSA.</button>
   </form>
   <script>
+  // var oneUserForm = Jsaform.findOne();
+  //
+  // var api = $('.sigPad').signaturePad({displayOnly:true});
+  // api.regenerate(allUserForms.sig);
+  // api.regenerate(oneUserForm.sig);
+
+
   $(document).ready(function() {
     $('.sigPad').signaturePad();
+    //$('.sigPad').signaturePad({displayOnly:true}).regenerate(oneUserForm.sig);
   });
   </script>
 

@@ -16,9 +16,32 @@ if (Meteor.isClient) {
 
   //Templates
 
-  // Template.adminDashboard.helpers({
+  Meteor.subscribe("allUserForms");
+
+  Template.adminDashboard.helpers({
+
+    allUserForms: function() {
+      return Jsaform.find({}, {sort: {createdAt: -1}});
+    }
+
+  });
+
+  // Meteor.methods({
+  //
+  //   // returns the cursor
+  //   var allUserForms = Jsaform.find({}, {sort: {createdAt: -1}});
+  //
+  //   // var api = $('.sigPad').signaturePad({displayOnly:true});
+  //   // api.regenerate(sigDocument.sig);
   //
   // });
+
+  // var allUserForms = Jsaform.find({}, {sort: {createdAt: -1}});
+  // var oneUserForm = Jsaform.findOne();
+  //
+  // var api = $('.sigPad').signaturePad({displayOnly:true});
+  // api.regenerate(allUserForms.sig);
+  // api.regenerate(oneUserForm.sig);
 
 
   Template.signature.helpers({
@@ -87,6 +110,11 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
+
+  Meteor.publish("allUserForms", function() {
+    return Jsaform.find();
+  });
+
   Meteor.startup(function () {
     // code to run on server at startup
 
