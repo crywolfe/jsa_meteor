@@ -36,7 +36,12 @@
       <td>{{location}}</td>
       <td>{{user}}</td>
       <td>
-        <li>{{sig}}</li>
+        <li class="sigPad signed">
+
+          {{testgenerate}}
+          {{generate}}
+          {{generate sig}}
+        </li>
       </td>
     </tr>
     {{/each}}
@@ -134,7 +139,7 @@
 
   $(document).ready(function() {
     $('.sigPad').signaturePad();
-    //$('.sigPad').signaturePad({displayOnly:true}).regenerate(oneUserForm.sig);
+    $('.sigPad').signaturePad({displayOnly:true}).regenerate(sig);
   });
   </script>
 
