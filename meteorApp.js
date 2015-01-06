@@ -3,9 +3,22 @@ Jsaform = new Mongo.Collection("jsaform");
 // Set up a Test Admin account
 // Meteor.users.update({"emails.address": "admin@g.com"}, {$set: {admin: true}});
 
+// Set up a Test Admin account. Still need to figure out how to use onCreateUser method. But this is a good temporary alternative.
+if (Meteor.users.find({"emails.address": "admin@g.com"}).count() === 0) {
+  Accounts.createUser({
+    admin: true,
+    email: 'admin@g.com',
+    password: '123456'
+  });
+}
+
 if (Meteor.isClient) {
 
   //Templates
+
+  // Template.adminDashboard.helpers({
+  //
+  // });
 
 
   Template.signature.helpers({
@@ -20,11 +33,12 @@ if (Meteor.isClient) {
     e.preventDefault();
     var sig = $(e.target).find('[name=output]').val();
 
-    // var client1 = $(e.target).find('[name=client]').val();
+    var client = $(e.target).find('[name=client]').val();
+    var project = $(e.target).find('[name=project]').val();
+    var location = $(e.target).find('[name=location]').val();
 
-    // console.log(client1);
-    console.log(sig);
-    console.log(1);
+    // console.log(client);
+    // console.log(sig);
 
     var safetyGlasses = $('#safety-glasses').is(':checked');
     var hearingProtection = $('#hearing-protection').is(':checked');
@@ -45,6 +59,9 @@ if (Meteor.isClient) {
       sig: sig,
       user: Meteor.userId(),
 
+      client: client,
+      project: project,
+      location: location,
 
       safetyGlasses: safetyGlasses,
       hearingProtection: hearingProtection,

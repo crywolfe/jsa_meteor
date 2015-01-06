@@ -11,12 +11,38 @@
   {{> loginButtons }}
   {{> signature}}
 
-  <div class="admin-dashboard"></div>
-  <div class="preparation"></div>
+<!--   {{#if currentUser.emails.address === "admin@g.com"}}
+ -->  <div class="admin-dashboard">
+    <!-- {{> adminDashboard}} -->
+  </div>
+<!--   {{#/if}}
+ -->  <div class="preparation"></div>
 
 </body>
 
 <template name="admin-dashboard">
+  <h3>ADMIN DASHBOARD</h3>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Location</th>
+      <th>User</th>
+      <th>Signature</th>
+    </tr>
+    <tr>
+      <td>{{jsaForm.createdAt}}</td>
+      <td>{{jsaForm.location}}</td>
+      <td>{{jsaForm.user}}</td>
+      <td>{{jsaForm.sig}}</td>
+    </tr>
+  </table>
+
+<!--   <ul>
+  {{#each users}}
+  {{> user}}
+  {{/each}}
+</ul> -->
+
 
   <!-- Show signatures - iterate through them -->
 
