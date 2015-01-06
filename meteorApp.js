@@ -26,37 +26,12 @@ if (Meteor.isClient) {
 
     generate: function() {
       var sig = '[{"lx":93,"ly":32,"mx":93,"my":31},{"lx":93,"ly":32,"mx":93,"my":32},{"lx":88,"ly":31,"mx":93,"my":32},{"lx":78,"ly":35,"mx":88,"my":31},{"lx":62,"ly":39,"mx":78,"my":35},{"lx":51,"ly":39,"mx":62,"my":39},{"lx":44,"ly":39,"mx":51,"my":39},{"lx":37,"ly":39,"mx":44,"my":39},{"lx":31,"ly":39,"mx":37,"my":39},{"lx":31,"ly":33,"mx":31,"my":39},{"lx":37,"ly":23,"mx":31,"my":33},{"lx":49,"ly":15,"mx":37,"my":23},{"lx":59,"ly":12,"mx":49,"my":15},{"lx":78,"ly":9,"mx":59,"my":12},{"lx":86,"ly":9,"mx":78,"my":9},{"lx":92,"ly":10,"mx":86,"my":9},{"lx":95,"ly":11,"mx":92,"my":10},{"lx":95,"ly":13,"mx":95,"my":11},{"lx":95,"ly":14,"mx":95,"my":13},{"lx":96,"ly":14,"mx":95,"my":14},{"lx":97,"ly":14,"mx":96,"my":14}]';
-      return  $('.sigPad').signaturePad({displayOnly:true}).regenerate(sig);
-    },
-
-    testgenerate: function(sign) {
-      return console.log("testgenerate " + sign);
+      $('.sigPad').signaturePad({displayOnly:true}).regenerate(sig);
     }
 
   });
 
-  // Meteor.methods({
-  //
-  //   // returns the cursor
-  //   var allUserForms = Jsaform.find({}, {sort: {createdAt: -1}});
-  //
-  //   // var api = $('.sigPad').signaturePad({displayOnly:true});
-  //   // api.regenerate(sigDocument.sig);
-  //
-  // });
-
-  // var allUserForms = Jsaform.find({}, {sort: {createdAt: -1}});
-  // var oneUserForm = Jsaform.findOne();
-  //
-  // var api = $('.sigPad').signaturePad({displayOnly:true});
-  // api.regenerate(allUserForms.sig);
-  // api.regenerate(oneUserForm.sig);
-
-
   Template.signature.helpers({
-
-    // var showSig = $('.sigPad').signaturePad({displayOnly:true});
-    // showSig.regenerate(sig);
 
   });
 

@@ -1,8 +1,8 @@
 <head>
   <title>JSA App Using Meteor</title>
   <!--[if lt IE 9]><script src="flashcanvas.js"></script><![endif]-->
-  <script src="client/assets/jquery.signaturepad.min.js"></script>
-  <script src="client/assets/json2.min.js"></script>
+  <!--<script src="client/assets/jquery.signaturepad.min.js"></script>
+  <script ipt src="client/assets/json2.min.js"></script>-->
   <!-- <link rel="stylesheet" href="client/assets/jquery.signaturepad.css"> -->
   </head>
 
@@ -36,26 +36,28 @@
       <td>{{location}}</td>
       <td>{{user}}</td>
       <td>
-        <li class="sigPad signed">
+          <li class="sigPad signed">
+            <div class="sigWrapper">
+                {{generate}}
+                <canvas class="pad" width="200" height="55"></canvas>
 
-          {{testgenerate}}
-          {{generate}}
-          {{generate sig}}
+            </div>
         </li>
       </td>
     </tr>
     {{/each}}
+
   </table>
 
-  <!-- Show signatures - iterate through them -->
-  <div class="sigPad">
+  <!-- Show signatures - iterate through them
+  <div class="sigPad signed">
     <div class="sigWrapper">
       <div class="typed">Gerald</div>
       <canvas class="pad" width="200" height="55"></canvas>
     </div>
     <p>Gerald<br>Date</p>
   </div>
-
+-->
 </template>
 
 <template name="preparation"></template>
@@ -139,7 +141,7 @@
 
   $(document).ready(function() {
     $('.sigPad').signaturePad();
-    $('.sigPad').signaturePad({displayOnly:true}).regenerate(sig);
+    // $('.sigPad').signaturePad({displayOnly:true}).regenerate(sig);
   });
   </script>
 
