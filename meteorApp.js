@@ -1,8 +1,5 @@
 Jsaform = new Mongo.Collection("jsaform");
 
-// Set up a Test Admin account
-// Meteor.users.update({"emails.address": "admin@g.com"}, {$set: {admin: true}});
-
 // Set up a Test Admin account. Still need to figure out how to use onCreateUser method. But this is a good temporary alternative.
 if (Meteor.users.find({"emails.address": "admin@g.com"}).count() === 0) {
   Accounts.createUser({
@@ -18,6 +15,24 @@ if (Meteor.isClient) {
 
   Meteor.subscribe("allUserForms");
 
+  // Set up hide and show for templates inside body helpers
+  Template.body.helpers({
+      show: function(){
+          var adminUser = Meteor.users.find({"emails.address": "admin@g.com"});
+          if (Meteor.userId === adminUser._id)
+
+//jquery to show adminDashboard and hide signature templates
+            return Template.adminDashboard; // hmmm...
+      },
+
+      hide: function() {
+          if (Meteor.userId != adminUser._id);
+              //jquery to hide admindashboard
+
+      }
+
+  });
+
   Template.adminDashboard.helpers({
 
     allUserForms: function() {
@@ -32,7 +47,21 @@ if (Meteor.isClient) {
             var api = $('#' + forms[i]._id).signaturePad({displayOnly:true});
             api.regenerate(forms[i].sig);
         }
+    },
+
+    userEmail: function() {
+        var forms = Jsaforms.find().fetch();
+        var user = forms.user;
+
+        for (var i = 0; i < forms.length; i++) {
+            var a = Meteor.users.find({_id:user}).fetch();
+            return a[0].emails[0].address;
+        }
+
     }
+
+// var a = Meteor.users.find({_id:user}).fetch();
+// a[0].emails[0].address
 
   });
 

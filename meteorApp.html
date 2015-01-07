@@ -8,9 +8,10 @@
 
 <body>
   <h1>Job Safety Analysis App</h1>
-  {{> loginButtons }}
-  {{> signature}}
-  {{> adminDashboard}}
+    {{> loginButtons }}
+        {{> signature}}
+        {{> adminDashboard}}
+
 
 <!--   {{#if currentUser.emails.address === "admin@g.com"}}
  -->  <div class="admin-dashboard">
@@ -38,7 +39,6 @@
       <td>
         <div id="{{_id}}">
             <div class="sigWrapper">
-                
                 <canvas class="pad" width="200" height="55"></canvas>
             </div>
         </div>
@@ -144,7 +144,6 @@
     // var api = $('.sigPad').signaturePad({displayOnly:true});
     // api.regenerate(sig);
     console.log("ready function");
-
     //$('.sigPad').signaturePad({displayOnly:true}).regenerate(sig);
   });
   </script>
