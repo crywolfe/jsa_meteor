@@ -36,16 +36,16 @@
       <td>{{location}}</td>
       <td>{{user}}</td>
       <td>
-        <div id = "{{_id}}">
+        <div id="{{_id}}">
             <div class="sigWrapper">
-                {{generate}}
+                
                 <canvas class="pad" width="200" height="55"></canvas>
             </div>
         </div>
       </td>
     </tr>
     {{/each}}
-
+    {{generate}}
   </table>
 
   <!-- Show signatures - iterate through them
