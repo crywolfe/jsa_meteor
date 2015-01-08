@@ -287,3 +287,21 @@ p.error {
   font-weight: bold;
 }
 
+
+
+/* GENERAL CSS */
+
+body {
+    background-color: #f2f2f5
+}
+
+h1 {
+    text-align: center;
+    color: #787878;
+}
+
+h3 {
+    color: #003250;
+}
+
+
