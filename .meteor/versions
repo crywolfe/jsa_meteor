@@ -49,6 +49,7 @@ routepolicy@1.0.3
 service-configuration@1.0.3
 session@1.0.5
 sha@1.0.2
+skeleton:skeleton@2.0.4
 spacebars@1.0.4
 spacebars-compiler@1.0.4
 srp@1.0.2
