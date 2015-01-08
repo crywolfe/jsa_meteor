@@ -72,8 +72,13 @@ if (Meteor.isClient) {
     var project = $(e.target).find('[name=project]').val();
     var location = $(e.target).find('[name=location]').val();
 
-    // console.log(client);
-    // console.log(sig);
+    var job = $(e.target).find('[name=job]').val();
+    var supervisor = $(e.target).find('[name=supervisor]').val();
+    var area = $(e.target).find('[name=area]').val();
+    var date = $(e.target).find('[name=date]').val();
+    var time = $(e.target).find('[name=time]').val();
+    var permit = $(e.target).find('[name=permit]').val();
+
 
     var safetyGlasses = $('#safety-glasses').is(':checked');
     var hearingProtection = $('#hearing-protection').is(':checked');
@@ -97,6 +102,13 @@ if (Meteor.isClient) {
       client: client,
       project: project,
       location: location,
+
+      job: job,
+      supervisor: supervisor,
+      area: area,
+      date: date,
+      time: time,
+      permit: permit,
 
       safetyGlasses: safetyGlasses,
       hearingProtection: hearingProtection,
