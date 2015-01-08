@@ -18,8 +18,8 @@ if (Meteor.isClient) {
   // Set up hide and show for templates inside body helpers
   Template.body.helpers({
     show: function(){
-      var adminUser = Meteor.users.find({"emails.address": "admin@g.com"});
-      if (Meteor.userId === adminUser._id) {
+      var adminUser = "admin@g.com";
+      if (Meteor.user().emails[0].address === adminUser) {
         $('.signature').hide();
         $('.admin-dashboard').show();
       } else {
