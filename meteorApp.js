@@ -19,15 +19,13 @@ if (Meteor.isClient) {
   Template.body.helpers({
     show: function(){
       var adminUser = Meteor.users.find({"emails.address": "admin@g.com"});
-      if (Meteor.userId === adminUser._id)
-
-//jquery to show adminDashboard and hide signature templates
-        return Template.adminDashboard; // hmmm...
-    },
-
-    hide: function() {
-      if (Meteor.userId != adminUser._id);
-        //jquery to hide admindashboard
+      if (Meteor.userId === adminUser._id) {
+        $('.signature').hide();
+        $('.admin-dashboard').show();
+      } else {
+        $('.signature').show();
+        $('.admin-dashboard').hide();
+      }
     }
 
   });

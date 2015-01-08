@@ -7,15 +7,16 @@
   </head>
 
 <body>
+  {{show}}
   <h1>Job Safety Analysis App</h1>
     {{> loginButtons }}
     <div class="signature">
-        {{> signature}}
+      {{> signature}}
     </div>
     <div class="admin-dashboard">
-        {{> adminDashboard}}
+      {{> adminDashboard}}
     </div>
-    
+
 </body>
 
 <template name="adminDashboard">
@@ -34,9 +35,9 @@
       <td>{{user}}</td>
       <td>
         <div id="{{_id}}">
-            <div class="sigWrapper">
-                <canvas class="pad" width="200" height="55"></canvas>
-            </div>
+          <div class="sigWrapper">
+            <canvas class="pad" width="200" height="55"></canvas>
+          </div>
         </div>
       </td>
     </tr>
