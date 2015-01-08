@@ -85,7 +85,8 @@ ul {
 .sigPad {
   margin: 0;
   padding: 0;
-  width: 200px;
+  /* original width was 200px */
+  width: 600px;
 }
 
 .sigPad label {
@@ -208,7 +209,8 @@ ul {
 
 .sigWrapper {
   clear: both;
-  height: 55px;
+  /* original height 55px */
+  height: 105px;
 
   border: 1px solid #ccc;
 }

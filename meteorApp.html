@@ -62,38 +62,52 @@
 
   <form method="post" action="" class="sigPad">
     <h3>Section 1 - Project Information</h3>
-    <h4>Client:
-      <select name="client">
-        <option value="None" selected>None</option>
-        <option value="NextEra" id="client-1">NextEra</option>
-        <option value="Whiting" id="client-2">Whiting</option>
-        <option value="Flatirons" id="client-3">Flatirons</option>
-      </select>
-    </h4>
-    <h4>Project:
-      <select name="project">
-        <option value="None" selected>None</option>
-        <option value="1st project" id="1st-project">1st project</option>
-        <option value="2nd project" id="2nd-project">2nd project</option>
-        <option value="3rd project" id="3rd-project">3rd project</option>
-      </select>
-    </h4>
-    <h4>Location:
-      <select name="location">
-        <option value="None" selected>None</option>
-        <option value="1st location" id="1st-location">1st location</option>
-        <option value="2nd location" id="2nd-location">2nd location</option>
-        <option value="3rd location" id="3rd-location">3rd location</option>
-      </select>
-    </h4>
+    <table>
+        <tr>
+            <td><h4>Client: </h4></td>
+            <td>
+                <select name="client">
+                    <option value="None" selected>None</option>
+                    <option value="NextEra" id="client-1">NextEra</option>
+                    <option value="Whiting" id="client-2">Whiting</option>
+                    <option value="Flatirons" id="client-3">Flatirons</option>
+                  </select>
+            </td>
+        </tr>
+        <tr>
+            <td><h4>Project: </h4></td>
+            <td>
+              <select name="project">
+                <option value="None" selected>None</option>
+                <option value="1st project" id="1st-project">1st project</option>
+                <option value="2nd project" id="2nd-project">2nd project</option>
+                <option value="3rd project" id="3rd-project">3rd project</option>
+              </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td><h4>Location: </h4></td>
+            <td>
+              <select name="location">
+                <option value="None" selected>None</option>
+                <option value="1st location" id="1st-location">1st location</option>
+                <option value="2nd location" id="2nd-location">2nd location</option>
+                <option value="3rd location" id="3rd-location">3rd location</option>
+              </select>
+            </td>
+        </tr>
+
+    </table>
 
     <h3>Job Information</h3>
-    <h4> Job: <input type="text" name="job" id="job" placeholder="job"/></h4>
-    <h4> Supervisor: <input type="text" name="supervisor" id="supervisor" placeholder="supervisor"/></h4>
-    <h4> Unit/Area: <input type="text" name="area" id="area" placeholder="area"/></h4>
-    <h4> Date: <input type="date" name="date" id="date" placeholder="date"/></h4>
-    <h4> Time: <input type="time" name="time" id="time" placeholder="time"/></h4>
-    <h4> Permit: <input type="text" name="permit" id="permit" placeholder="permit"/></h4>
+
+    <h4> Job: </h4> <input type="text" name="job" id="job" placeholder="job"/>
+   <h4> Supervisor: </h4><input type="text" name="supervisor" id="supervisor" placeholder="supervisor"/>
+    <h4> Unit/Area: </h4><input type="text" name="area" id="area" placeholder="area"/>
+    <h4> Date: </h4><input type="date" name="date" id="date" placeholder="date"/>
+    <h4> Time: </h4><input type="time" name="time" id="time" placeholder="time"/>
+        <h4> Permit: </h4><input type="text" name="permit" id="permit" placeholder="permit"/>
 
     <h3>Section 2 - PPE Requirements</h3>
     <table>
@@ -169,9 +183,11 @@
     </ul>
     <div class="sig sigWrapper">
       <div class="typed"></div>
-      <canvas class="pad" width="198" height="55"></canvas>
+      <canvas class="pad" width="398" height="105"></canvas>
       <input type="hidden" name="output" class="output">
     </div>
+    <br>
+    <br>
     <button type="submit">I accept and approve the content of this JSA.</button>
   </form>
   <script>
