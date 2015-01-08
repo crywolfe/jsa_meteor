@@ -8,16 +8,14 @@
 
 <body>
   <h1>Job Safety Analysis App</h1>
-  {{> loginButtons }}
-  {{> signature}}
-  {{> adminDashboard}}
+    {{> loginButtons }}
+    <div class="signature"> 
+        {{> signature}}
+    </div>
+    <div class="admin-dashboard">
+        {{> adminDashboard}}
+    </div>
 
-<!--   {{#if currentUser.emails.address === "admin@g.com"}}
- -->  <div class="admin-dashboard">
-    <!-- {{> adminDashboard}} -->
-  </div>
-<!--   {{#/if}}
- -->  <div class="preparation"></div>
 
 </body>
 
@@ -36,16 +34,15 @@
       <td>{{location}}</td>
       <td>{{user}}</td>
       <td>
-        <div id = "{{_id}}">
+        <div id="{{_id}}">
             <div class="sigWrapper">
-                {{generate}}
                 <canvas class="pad" width="200" height="55"></canvas>
             </div>
         </div>
       </td>
     </tr>
     {{/each}}
-
+    {{generate}}
   </table>
 
   <!-- Show signatures - iterate through them -->
@@ -144,7 +141,6 @@
     // var api = $('.sigPad').signaturePad({displayOnly:true});
     // api.regenerate(sig);
     console.log("ready function");
-
     //$('.sigPad').signaturePad({displayOnly:true}).regenerate(sig);
   });
   </script>
