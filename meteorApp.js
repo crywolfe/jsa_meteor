@@ -93,6 +93,13 @@ if (Meteor.isClient) {
     var leatherGloves = $('#leather-gloves').is(':checked');
     var rubberGloves = $('#rubber-gloves').is(':checked');
 
+    var sequence = $(e.target).find('[name=sequence]').val();
+    var potHazard = $(e.target).find('[name=pot-hazard]').val();
+    var procedure = $(e.target).find('[name=procedure]').val();
+    var otherPermit = $(e.target).find('[name=other-permit]').val();
+    var welding = $(e.target).find('[name=welding]').val();
+    var hazard = $(e.target).find('[name=hazard]').val();
+    var access = $(e.target).find('[name=access]').val();
 
     Jsaform.insert({
       createdAt: new Date(),
@@ -121,7 +128,16 @@ if (Meteor.isClient) {
       safetyToedboots: safetyToedboots,
       elevatedWork: elevatedWork,
       leatherGloves: leatherGloves,
-      rubberGloves: rubberGloves
+      rubberGloves: rubberGloves,
+
+      sequence: sequence,
+      potHazard: potHazard,
+      procedure: procedure,
+      otherPermit: otherPermit,
+      welding: welding,
+      hazard: hazard,
+      access: access
+
 
     });
 
