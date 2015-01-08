@@ -71,7 +71,7 @@ ul {
 /* I was receiving the following error in dev tools when holding this CSS file in the client/assets directory so rather than ignore the error, I moved the CSS file into the main CSS file.
  */
 
-@font-face {
+/* @font-face {
   font-family: 'Journal';
   src: url('journal.eot');
   src: url('journal.eot?#iefix') format('embedded-opentype'),
@@ -81,6 +81,7 @@ ul {
   font-weight: normal;
   font-style: normal;
 }
+*/
 
 .sigPad {
   margin: 0;
@@ -105,7 +106,8 @@ ul {
 .sigPad input {
   margin: 0;
   padding: 0.2em 0;
-  width: 198px;
+  /* original width was 198 */
+  width: 598px;
 
   border: 1px solid #666;
 
@@ -210,7 +212,7 @@ ul {
 .sigWrapper {
   clear: both;
   /* original height 55px */
-  height: 105px;
+  height: 155px;
 
   border: 1px solid #ccc;
 }
@@ -283,3 +285,4 @@ p.error {
   color: #fff;
   font-weight: bold;
 }
+
