@@ -1,4 +1,4 @@
-var fs = Npm.require('fs');
+//var fs = Npm.require('fs');
 Jsaform = new Mongo.Collection("jsaform");
 
 // Set up a Test Admin account. Still need to figure out how to use onCreateUser method. But this is a good temporary alternative.
@@ -17,6 +17,10 @@ if (Meteor.isClient) {
   //Templates
 
   Meteor.subscribe("allUserForms");
+
+    var doc2 = new jsPDF();
+    doc2.text(35, 25, "TESTING THIS APP");
+    doc2.save("REPORT.pdf");
 
   // Set up hide and show for templates inside body helpers
   Template.body.helpers({
@@ -169,15 +173,14 @@ if (Meteor.isServer) {
 //}
 //});
 
-var doc2 = new jsPDF();
-var doc = new PDFDocument();
+// var doc = new PDFDocument();
 
 var items = Jsaform.findOne().user + "\n" +
             Jsaform.findOne().sig;
 
-doc.text('ADMINISTRATOR JSA REPORT')
-    .text(items, {
-        width:300
-    });
+// doc.text('ADMINISTRATOR JSA REPORT')
+//    .text(items, {
+//        width:300
+//    });
 
-doc.writeSync(process.env.PWD + '/TEST.pdf');
+//doc.writeSync(process.env.PWD + '/TEST.pdf');
