@@ -1,3 +1,4 @@
+var fs = Npm.require('fs');
 Jsaform = new Mongo.Collection("jsaform");
 
 // Set up a Test Admin account. Still need to figure out how to use onCreateUser method. But this is a good temporary alternative.
@@ -8,6 +9,8 @@ if (Meteor.users.find({"emails.address": "admin@g.com"}).count() === 0) {
     password: '123456'
   });
 }
+
+
 
 if (Meteor.isClient) {
 
@@ -160,3 +163,13 @@ if (Meteor.isServer) {
 
   });
 }
+
+
+
+var doc = new PDFDocument();
+doc.text('ADMINISTRATOR JSA REPORT')
+    .text(Jsaform.findOne().user, {
+        width:300
+    });
+
+doc.writeSync(process.env.PWD + '/TEST.pdf');
