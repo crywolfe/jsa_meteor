@@ -164,11 +164,19 @@ if (Meteor.isServer) {
   });
 }
 
+//Template.pdf.events({'click': function(e){
+//    e.preventDefault();
+//}
+//});
 
-
+var doc2 = new jsPDF();
 var doc = new PDFDocument();
+
+var items = Jsaform.findOne().user + "\n" +
+            Jsaform.findOne().sig;
+
 doc.text('ADMINISTRATOR JSA REPORT')
-    .text(Jsaform.findOne().user, {
+    .text(items, {
         width:300
     });
 
