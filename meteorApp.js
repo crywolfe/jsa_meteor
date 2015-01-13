@@ -20,7 +20,7 @@ if (Meteor.isClient) {
 
     var doc2 = new jsPDF('p', 'in', 'letter'),
     fonts = [['Times', 'Roman']],
-    margin = .5,
+    margin = 0.5,
     verticalOffset = 1;
 
     doc2.setFontSize(14);
@@ -195,12 +195,12 @@ var signatureString = JSON.parse(items.sig);
 
 var sigLength = signatureString.length;
 
-for (int i = 0; i < sigLength; i++) {
+var svgPath = [];
+for (var i=0; i<sigLength; i++) {
 
   var mpath = "M " + signatureString[i].mx + "," + signatureString[i].my + " ";
-  var lpath = "L " + signatureString[i].lx + ',' + signatureString[i].ly + " ";
+  var lpath = "L " + signatureString[i].lx + "," + signatureString[i].ly + " ";
 
-  var svgPath = [];
   svgPath.push(mpath);
   svgPath.push(lpath);
 
