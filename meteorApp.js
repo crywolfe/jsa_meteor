@@ -18,9 +18,21 @@ if (Meteor.isClient) {
 
   Meteor.subscribe("allUserForms");
 
-    var doc2 = new jsPDF();
-    doc2.text(35, 25, "TESTING THIS APP");
+    var doc2 = new jsPDF('p', 'in', 'letter'),
+    fonts = [['Times', 'Roman']],
+    margin = .5,
+    verticalOffset = 1;
+
+    doc2.setFontSize(14);
+
+    doc2.text(margin, verticalOffset, "JSA INDIVIDUAL REPORT");
+    doc2.text(margin, verticalOffset, "SECOND LINE OF TEXT");
+    doc2.text(margin, verticalOffset, "THIRD LINE OF TEXT");
+
+
     doc2.save("REPORT.pdf");
+
+
 
   // Set up hide and show for templates inside body helpers
   Template.body.helpers({
@@ -168,19 +180,53 @@ if (Meteor.isServer) {
   });
 }
 
-//Template.pdf.events({'click': function(e){
+//Template.pdf.events({'click #user-form': function(e){
 //    e.preventDefault();
+//    Jsaform.findOne(this._id).user
 //}
 //});
 
-// var doc = new PDFDocument();
+var doc = new PDFDocument({size: 'letter'});
 
 var items = Jsaform.findOne().user + "\n" +
             Jsaform.findOne().sig;
 
-// doc.text('ADMINISTRATOR JSA REPORT')
-//    .text(items, {
-//        width:300
-//    });
+var signatureString = JSON.parse(items.sig);
 
-//doc.writeSync(process.env.PWD + '/TEST.pdf');
+var sigLength = signatureString.length;
+
+for (int i = 0; i < sigLength; i++) {
+
+  var mpath = "M " + signatureString[i].mx + "," + signatureString[i].my + " ";
+  var lpath = "L " + signatureString[i].lx + ',' + signatureString[i].ly + " ";
+
+  var svgPath = [];
+  svgPath.push(mpath);
+  svgPath.push(lpath);
+
+}
+var formattedPath = svgPath.join("");
+
+
+
+doc.text('ADMINISTRATOR JSA REPORT',{align: 'center'});
+
+// render initial job info
+doc.text('Client: ' + items.client);
+doc.text('Location: ' + items.location);
+doc.text('Project: ' + items.project);
+
+// render all checkbox items
+doc.text('Safety Glasses: ' + items.safetyGlasses);
+doc.text('Hearing Protection: ' + items.hearingProtection);
+doc.text('Face Shield: ' + items.faceShield);
+doc.text('Fall Protection: ' + items.fallProtection);
+doc.text('Gas Monitor: ' + items.gasMonitor);
+doc.text('Chemical Gloves: ' + items.chemicalGloves);
+doc.text('Hard Hat: ' + items.hardHat);
+
+
+doc.path(formattedPath).stroke();
+
+doc.text(items.sig);
+doc.writeSync(process.env.PWD + '/TEST.pdf');
