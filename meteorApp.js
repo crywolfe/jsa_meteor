@@ -191,7 +191,8 @@ var doc = new PDFDocument({size: 'letter'});
 var items = Jsaform.findOne().user + "\n" +
             Jsaform.findOne().sig;
 
-var signatureString = JSON.parse(items.sig);
+// Meteor's version of JSON
+var signatureString = EJSON.parse(items.sig);
 
 var sigLength = signatureString.length;
 
