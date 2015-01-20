@@ -45,6 +45,29 @@ if (Meteor.isClient) {
         $('.signature').show();
         $('.admin-dashboard').hide();
       }
+    },
+
+    svgSig: function(){
+
+      var signatureString = Jsaform.findOne().sig;
+
+      // Meteor's version of JSON
+      var signature = EJSON.parse(signatureString);
+
+      var sigLength = signature.length;
+
+      var svgPath = [];
+      for (var i=0; i<sigLength; i++) {
+
+        var mpath = "M " + signature[i].mx + "," + signature[i].my + " ";
+        var lpath = "L " + signature[i].lx + "," + signature[i].ly + " ";
+
+        svgPath.push(mpath);
+        svgPath.push(lpath);
+
+      }
+      var formattedPath = svgPath.join("");
+      return formattedPath;
     }
 
   });
@@ -188,25 +211,6 @@ if (Meteor.isServer) {
 
 var doc = new PDFDocument({size: 'letter'});
 
-var signatureString = Jsaform.findOne().sig;
-
-// Meteor's version of JSON
-var signature = EJSON.parse(signatureString);
-
-var sigLength = signature.length;
-
-var svgPath = [];
-for (var i=0; i<sigLength; i++) {
-
-  var mpath = "M " + signature[i].mx + "," + signature[i].my + " ";
-  var lpath = "L " + signature[i].lx + "," + signature[i].ly + " ";
-
-  svgPath.push(mpath);
-  svgPath.push(lpath);
-
-}
-var formattedPath = svgPath.join("");
-console.log(formattedPath);
 //doc.text('ADMINISTRATOR JSA REPORT',{align: 'center'});
 
 //// render initial job info
