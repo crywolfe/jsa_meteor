@@ -188,46 +188,42 @@ if (Meteor.isServer) {
 
 var doc = new PDFDocument({size: 'letter'});
 
-var items = Jsaform.findOne().user + "\n" +
-            Jsaform.findOne().sig;
+var signatureString = Jsaform.findOne().sig;
 
 // Meteor's version of JSON
-var signatureString = EJSON.parse(items.sig);
+var signature = EJSON.parse(signatureString);
 
-var sigLength = signatureString.length;
+var sigLength = signature.length;
 
 var svgPath = [];
 for (var i=0; i<sigLength; i++) {
 
-  var mpath = "M " + signatureString[i].mx + "," + signatureString[i].my + " ";
-  var lpath = "L " + signatureString[i].lx + "," + signatureString[i].ly + " ";
+  var mpath = "M " + signature[i].mx + "," + signature[i].my + " ";
+  var lpath = "L " + signature[i].lx + "," + signature[i].ly + " ";
 
   svgPath.push(mpath);
   svgPath.push(lpath);
 
 }
 var formattedPath = svgPath.join("");
+console.log(formattedPath);
+//doc.text('ADMINISTRATOR JSA REPORT',{align: 'center'});
 
+//// render initial job info
+//doc.text('Client: ' + items.client);
+//doc.text('Location: ' + items.location);
+//doc.text('Project: ' + items.project);
 
+//// render all checkbox items
+//doc.text('Safety Glasses: ' + items.safetyGlasses);
+//doc.text('Hearing Protection: ' + items.hearingProtection);
+//doc.text('Face Shield: ' + items.faceShield);
+//doc.text('Fall Protection: ' + items.fallProtection);
+//doc.text('Gas Monitor: ' + items.gasMonitor);
+//doc.text('Chemical Gloves: ' + items.chemicalGloves);
+//doc.text('Hard Hat: ' + items.hardHat);
 
-doc.text('ADMINISTRATOR JSA REPORT',{align: 'center'});
+//doc.path(formattedPath).stroke();
 
-// render initial job info
-doc.text('Client: ' + items.client);
-doc.text('Location: ' + items.location);
-doc.text('Project: ' + items.project);
-
-// render all checkbox items
-doc.text('Safety Glasses: ' + items.safetyGlasses);
-doc.text('Hearing Protection: ' + items.hearingProtection);
-doc.text('Face Shield: ' + items.faceShield);
-doc.text('Fall Protection: ' + items.fallProtection);
-doc.text('Gas Monitor: ' + items.gasMonitor);
-doc.text('Chemical Gloves: ' + items.chemicalGloves);
-doc.text('Hard Hat: ' + items.hardHat);
-
-
-doc.path(formattedPath).stroke();
-
-doc.text(items.sig);
-doc.writeSync(process.env.PWD + '/TEST.pdf');
+//doc.text(items.sig);
+//doc.writeSync(process.env.PWD + '/TEST.pdf');
