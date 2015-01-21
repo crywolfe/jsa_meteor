@@ -87,6 +87,31 @@ if (Meteor.isClient) {
 
   Template.adminDashboard.events({
     // on a click of a td row run the create PDF function
+    "click #{{_id}}": function() {
+      //run the create PDF function
+      var doc = new PDFDocument({size: 'letter'});
+
+      doc.text('ADMINISTRATOR JSA REPORT',{align: 'center'});
+
+      // render initial job info
+      doc.text('Client: ' + items.client);
+      doc.text('Location: ' + items.location);
+      doc.text('Project: ' + items.project);
+
+      // render all checkbox items
+      doc.text('Safety Glasses: ' + items.safetyGlasses);
+      doc.text('Hearing Protection: ' + items.hearingProtection);
+      doc.text('Face Shield: ' + items.faceShield);
+      doc.text('Fall Protection: ' + items.fallProtection);
+      doc.text('Gas Monitor: ' + items.gasMonitor);
+      doc.text('Chemical Gloves: ' + items.chemicalGloves);
+      doc.text('Hard Hat: ' + items.hardHat);
+
+      doc.path(formattedPath).stroke();
+
+      doc.text(items.sig);
+      doc.writeSync(process.env.PWD + '/TEST01211501.pdf');
+    }
   });
 
   Template.signature.helpers({
@@ -193,30 +218,8 @@ if (Meteor.isServer) {
 }
 
 //Template.pdf.events({'click #user-form': function(e){
-//    e.preventDefault();
-//    Jsaform.findOne(this._id).user
-//}
+//  e.preventDefault();
+//  Jsaform.findOne(this._id).user
+//  }
 //});
 
-var doc = new PDFDocument({size: 'letter'});
-
-//doc.text('ADMINISTRATOR JSA REPORT',{align: 'center'});
-
-//// render initial job info
-//doc.text('Client: ' + items.client);
-//doc.text('Location: ' + items.location);
-//doc.text('Project: ' + items.project);
-
-//// render all checkbox items
-//doc.text('Safety Glasses: ' + items.safetyGlasses);
-//doc.text('Hearing Protection: ' + items.hearingProtection);
-//doc.text('Face Shield: ' + items.faceShield);
-//doc.text('Fall Protection: ' + items.fallProtection);
-//doc.text('Gas Monitor: ' + items.gasMonitor);
-//doc.text('Chemical Gloves: ' + items.chemicalGloves);
-//doc.text('Hard Hat: ' + items.hardHat);
-
-//doc.path(formattedPath).stroke();
-
-//doc.text(items.sig);
-//doc.writeSync(process.env.PWD + '/TEST.pdf');
