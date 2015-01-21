@@ -85,6 +85,10 @@ if (Meteor.isClient) {
 
   });
 
+  Template.adminDashboard.events({
+    // on a click of a td row run the create PDF function
+  });
+
   Template.signature.helpers({
 
   });
