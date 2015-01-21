@@ -9,7 +9,7 @@
 <body>
 
 <h1>SVG IS BELOW</h1>
-<svg height="210" width="400">
+<svg height="150" width="300">
     <path d="{{svgSig}}" stroke="black" />
 </svg>
 
@@ -34,18 +34,18 @@
     <tr>
       <th>Date</th>
       <th>Location</th>
-      <th>User</th>
+      <th>User Email</th>
       <th>Signature</th>
     </tr>
     {{#each allUserForms}}
     <tr>
       <td>{{createdAt}}</td>
       <td>{{location}}</td>
-      <td>{{user}}</td>
+      <td>{{userEmail}}</td>
       <td>
         <div id="{{_id}}">
             <div class="sigWrapper">
-                <canvas class="pad" width="300" height="205"></canvas>
+                <canvas class="pad" width="350" height="225"></canvas>
             </div>
         </div>
       </td>

@@ -35,11 +35,9 @@ if (Meteor.isClient) {
     show: function(){
       var adminUser = "admin@g.com";
       if (Meteor.user().emails[0].address === adminUser) {
-          console.log("adminUser is current user");
           $('.signature').hide();
         $('.admin-dashboard').show();
       } else {
-          console.log("adminUser is NOT current user");
         $('.signature').show();
         $('.admin-dashboard').hide();
       }
@@ -48,7 +46,6 @@ if (Meteor.isClient) {
     svgSig: function(){
 
       var signatureString = Jsaform.findOne().sig;
-
       // Meteor's version of JSON
       var signature = EJSON.parse(signatureString);
 
@@ -65,7 +62,6 @@ if (Meteor.isClient) {
 
       }
       var formattedPath = svgPath.join("");
-      console.log(formattedPath);
       return formattedPath;
     }
 
@@ -85,17 +81,6 @@ if (Meteor.isClient) {
         var api = $('#' + forms[i]._id).signaturePad({displayOnly:true});
         api.regenerate(forms[i].sig);
       }
-    },
-
-    userEmail: function() {
-      var forms = Jsaforms.find().fetch();
-      var user = forms.user;
-
-      for (var i = 0; i < forms.length; i++) {
-        var a = Meteor.users.find({_id:user}).fetch();
-        return a[0].emails[0].address;
-      }
-
     }
 
   });
@@ -146,6 +131,7 @@ if (Meteor.isClient) {
       createdAt: new Date(),
       sig: sig,
       user: Meteor.userId(),
+      userEmail: Meteor.user(Meteor.userId()).emails[0].address,
 
       client: client,
       project: project,
