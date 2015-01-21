@@ -10,28 +10,24 @@ if (Meteor.users.find({"emails.address": "admin@g.com"}).count() === 0) {
   });
 }
 
-
-
 if (Meteor.isClient) {
 
   //Templates
 
-  Meteor.subscribe("allUserForms");
+  //Meteor.subscribe("allUserForms");
 
-    var doc2 = new jsPDF('p', 'in', 'letter'),
-    fonts = [['Times', 'Roman']],
-    margin = 0.5,
-    verticalOffset = 1;
+   // var doc2 = new jsPDF('p', 'in', 'letter'),
+   // fonts = [['Times', 'Roman']],
+   // margin = 0.5,
+   // verticalOffset = 1;
 
-    doc2.setFontSize(14);
+   // doc2.setFontSize(14);
 
-    doc2.text(margin, verticalOffset, "JSA INDIVIDUAL REPORT");
-    doc2.text(margin, verticalOffset, "SECOND LINE OF TEXT");
-    doc2.text(margin, verticalOffset, "THIRD LINE OF TEXT");
+   // doc2.text(margin, verticalOffset, "JSA INDIVIDUAL REPORT");
+   // doc2.text(margin, verticalOffset, "SECOND LINE OF TEXT");
+   // doc2.text(margin, verticalOffset, "THIRD LINE OF TEXT");
 
-
-    doc2.save("REPORT.pdf");
-
+   // doc2.save("REPORT.pdf");
 
 
   // Set up hide and show for templates inside body helpers
@@ -39,9 +35,11 @@ if (Meteor.isClient) {
     show: function(){
       var adminUser = "admin@g.com";
       if (Meteor.user().emails[0].address === adminUser) {
-        $('.signature').hide();
+          console.log("adminUser is current user");
+          $('.signature').hide();
         $('.admin-dashboard').show();
       } else {
+          console.log("adminUser is NOT current user");
         $('.signature').show();
         $('.admin-dashboard').hide();
       }
@@ -67,6 +65,7 @@ if (Meteor.isClient) {
 
       }
       var formattedPath = svgPath.join("");
+      console.log(formattedPath);
       return formattedPath;
     }
 
@@ -193,9 +192,9 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 
-  Meteor.publish("allUserForms", function() {
-    return Jsaform.find();
-  });
+  //Meteor.publish("allUserForms", function() {
+  //  return Jsaform.find();
+  //});
 
   Meteor.startup(function () {
     // code to run on server at startup
