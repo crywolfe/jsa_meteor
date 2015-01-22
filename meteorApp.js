@@ -16,18 +16,6 @@ if (Meteor.isClient) {
 
   //Meteor.subscribe("allUserForms");
 
-   // var doc2 = new jsPDF('p', 'in', 'letter'),
-   // fonts = [['Times', 'Roman']],
-   // margin = 0.5,
-   // verticalOffset = 1;
-
-   // doc2.setFontSize(14);
-
-   // doc2.text(margin, verticalOffset, "JSA INDIVIDUAL REPORT");
-   // doc2.text(margin, verticalOffset, "SECOND LINE OF TEXT");
-   // doc2.text(margin, verticalOffset, "THIRD LINE OF TEXT");
-
-   // doc2.save("REPORT.pdf");
 
 
   // Set up hide and show for templates inside body helpers
@@ -87,30 +75,43 @@ if (Meteor.isClient) {
 
   Template.adminDashboard.events({
     // on a click of a td row run the create PDF function
-    "click #{{_id}}": function() {
+    'click ': function() {
       //run the create PDF function
-      var doc = new PDFDocument({size: 'letter'});
+      //var doc = new PDFDocument({size: 'letter'});
+      var items = Jsaform.findOne({_id:"wZTb33aitJmHxXTD3"});
+      var doc2 = new jsPDF('p', 'in', 'letter'),
+        fonts = [['Times', 'Roman']],
+        margin = 0.5,
+        verticalOffset = 1;
 
-      doc.text('ADMINISTRATOR JSA REPORT',{align: 'center'});
+      doc2.setFontSize(14);
+
+      doc2.text(margin, verticalOffset, "JSA INDIVIDUAL REPORT");
+      doc2.text(margin, verticalOffset, "SECOND LINE OF TEXT");
+      doc2.text(margin, verticalOffset, "THIRD LINE OF TEXT");
+
+      //doc.text('ADMINISTRATOR JSA REPORT',{align: 'center'});
 
       // render initial job info
-      doc.text('Client: ' + items.client);
-      doc.text('Location: ' + items.location);
-      doc.text('Project: ' + items.project);
+      doc2.text('Client: ' + items.client);
+      doc2.text('Location: ' + items.location);
+      doc2.text('Project: ' + items.project);
 
       // render all checkbox items
-      doc.text('Safety Glasses: ' + items.safetyGlasses);
-      doc.text('Hearing Protection: ' + items.hearingProtection);
-      doc.text('Face Shield: ' + items.faceShield);
-      doc.text('Fall Protection: ' + items.fallProtection);
-      doc.text('Gas Monitor: ' + items.gasMonitor);
-      doc.text('Chemical Gloves: ' + items.chemicalGloves);
-      doc.text('Hard Hat: ' + items.hardHat);
+      doc2.text('Safety Glasses: ' + items.safetyGlasses);
+      doc2.text('Hearing Protection: ' + items.hearingProtection);
+      doc2.text('Face Shield: ' + items.faceShield);
+      doc2.text('Fall Protection: ' + items.fallProtection);
+      doc2.text('Gas Monitor: ' + items.gasMonitor);
+      doc2.text('Chemical Gloves: ' + items.chemicalGloves);
+      doc2.text('Hard Hat: ' + items.hardHat);
 
-      doc.path(formattedPath).stroke();
+      //doc2.path(formattedPath).stroke();
 
-      doc.text(items.sig);
-      doc.writeSync(process.env.PWD + '/TEST01211501.pdf');
+debugger;
+      doc2.save("REPORT 012215.pdf");
+      //doc.text(items.sig);
+      //doc.writeSync(process.env.PWD + '/TEST01211501.pdf');
     }
   });
 
