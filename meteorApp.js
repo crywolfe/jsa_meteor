@@ -108,7 +108,7 @@ if (Meteor.isClient) {
 
       //doc2.path(formattedPath).stroke();
 
-debugger;
+// debugger;
       doc2.save("REPORT 012215.pdf");
       //doc.text(items.sig);
       //doc.writeSync(process.env.PWD + '/TEST01211501.pdf');
